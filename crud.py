@@ -66,7 +66,7 @@ class VendasWindow(MDBoxLayout):
 			nome = store.get(key)['nome']
 			idade = store.get(key)['idade']
 
-			self.ids.container.add_widget(ListComAvatar(text = f'[b]{nome}[/b]' , secondary_text = f'{idade} anos'))
+			self.ids.container.add_widget(ListComAvatar(text = nome , secondary_text = f'{idade} anos'))
 	
 		for key in store:
 			print(store.get(key)['nome'])
@@ -83,6 +83,9 @@ class MyCrud(MDApp):
 	}
 	def on_start(self):
 		self.root.Listar()
+		
+	def abrir(self, instance):
+		toast(instance.text)
 
 	def callback(self, instance):
 		print(instance.icon)
