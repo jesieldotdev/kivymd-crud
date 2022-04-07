@@ -1,0 +1,40 @@
+[INFO   ] Logger: Record log in /storage/emulated/0/kivymd-crud/.kivy/logs/kivy_22-04-07_23.txt
+[INFO   ] Kivy: v2.0.0
+[INFO   ] Kivy: Installed at "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/__init__.py"
+[INFO   ] Python: v3.9.7 (default, Oct  6 2021, 01:34:26) 
+[GCC 11.1.0]
+[INFO   ] Python: Interpreter at "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/bin/python3"
+[INFO   ] KivyMD: 0.104.2, git-bc7d1f5, 2021-06-06 (installed at "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivymd/__init__.py")
+[INFO   ] Factory: 186 symbols loaded
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] Text: Provider: sdl2
+[INFO   ] Window: Provider: sdl2
+[INFO   ] GL: Using the "OpenGL ES 2" graphics system
+[INFO   ] GL: Backend used <sdl2>
+[INFO   ] GL: OpenGL version <b'OpenGL ES 3.2 V@415.0 (GIT@389f9e1, I4b4012dc33, 1605186217) (Date:11/12/20)'>
+[INFO   ] GL: OpenGL vendor <b'Qualcomm'>
+[INFO   ] GL: OpenGL renderer <b'Adreno (TM) 512'>
+[INFO   ] GL: OpenGL parsed version: 3, 2
+[INFO   ] GL: Texture max size <16384>
+[INFO   ] GL: Texture max units <16>
+[INFO   ] Window: auto add sdl2 input provider
+[INFO   ] Window: virtual keyboard not allowed, single mode, not docked
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivymd/theming.py", line 1126, in __init__
+[WARNING] stderr:     App.get_running_app().property("theme_cls", True),
+[WARNING] stderr: AttributeError: 'NoneType' object has no attribute 'property'
+[WARNING] stderr: 
+[WARNING] stderr: During handling of the above exception, another exception occurred:
+[WARNING] stderr: 
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/storage/emulated/0/kivymd-crud/crud.py", line 15, in <module>
+[WARNING] stderr:     kv = Builder.load_file('crud.kv')
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/lang/builder.py", line 306, in load_file
+[WARNING] stderr:     return self.load_string(data, **kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/lang/builder.py", line 404, in load_string
+[WARNING] stderr:     widget = Factory.get(parser.root.name)(__no_builder=True)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivymd/uix/button.py", line 1800, in __init__
+[WARNING] stderr:     super().__init__(**kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivymd/theming.py", line 1134, in __init__
+[WARNING] stderr:     raise ValueError(
+[WARNING] stderr: ValueError: KivyMD: App object must be initialized before loading root widget. See https://github.com/kivymd/KivyMD/wiki/Modules-Material-App#exceptions

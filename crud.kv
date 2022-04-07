@@ -1,5 +1,27 @@
 #:import hex kivy.utils.get_color_from_hex
 
+<MD3Card>
+    padding: 16
+    size_hint: None, None
+    size: "200dp", "100dp"
+
+    MDRelativeLayout:
+        size_hint: None, None
+        size: root.size
+
+        MDIconButton:
+            icon: "dots-vertical"
+            pos:
+                root.width - (self.width + root.padding[0] + dp(4)),                     root.height - (self.height + root.padding[0] + dp(4))
+
+        MDLabel:
+            id: label
+            text: root.text
+            adaptive_size: True
+            color: .2, .2, .2, .8
+
+
+
 <ListComAvatar>:
     on_release: app.abrir
 	ImageLeftWidget:
@@ -25,14 +47,16 @@
 
 		MDToolbar:
 			title: 'CRUD App'
-			elevation: .10
-			size_hint_y: .15
+			elevation: 10
+			#size_hint_y: .15
 		MDBoxLayout:
 			orientation: 'vertical'
 			
+			
 			MDBoxLayout:
+                id: content
 
-				size_hint_y: .6
+				#size_hint_y: .6
 				orientation: 'vertical'
 
 				canvas.before:
@@ -56,41 +80,97 @@
 
 	    	
 
-		MDBoxLayout:
+		#g: 0
 
-			id: box
-			orientation: 'vertical'
-			# 
-			halign: 'center'
+#
+
+#		                
+
+#
+
+#        		
+
+#
+
+#
+
+#	    	
+
+#
+
+#		MDBoxLayout:
+
+#
+
+#			id: box
+
+#			orientation: 'vertical'
+
+#			# 
+
+#			halign: 'center'
+
+#			canvas.before:
+
+#				Color:
+
+#					rgba: hex
+
+			#eeee')
+
+#				Rectangle:
+
+#					size: self.size
+
+#					pos: self.pos
+
+#
+
+#			MDBoxLayout:
+
+#				# spacing: '10dp'
+
+#				# size_hint_y: '10px'
+
+#				orientation: 'vertical'
+
+#
+
+#				MDTextField:
+
+#		    		id: colecao
+
+#		    		hint_text: "Nome"
+
+#		    		multiline: False
+
+#		    		halign: 'center'
+
+#					on_text_validate: root.Adicionar(self.text)
+
+#					spacing: ('10px', '5px')
+
+#
+
+#
+
+#				MDTextField:
+
+#		    		id: idade
+
+#		    		hint_text: "Idade"
+
+#		    		mu
+
+		MDFloatLayout:
 			canvas.before:
 				Color:
-					rgba: hex('#eeeeee')
+					rgba: hex('#282828')
 				Rectangle:
 					size: self.size
 					pos: self.pos
-
-			MDBoxLayout:
-				# spacing: '10dp'
-				# size_hint_y: '10px'
-				orientation: 'vertical'
-
-				MDTextField:
-		    		id: colecao
-		    		hint_text: "Nome"
-		    		multiline: False
-		    		halign: 'center'
-					on_text_validate: root.Adicionar(self.text)
-					spacing: ('10px', '5px')
-
-
-				MDTextField:
-		    		id: idade
-		    		hint_text: "Idade"
-		    		multiline: False
-		    		halign: 'center'
-					on_text_validate: root.Adicionar(self.text)
-
-
+			size_hint_y: .00001
+			#size_hint_x: .2
 			MDFloatingActionButtonSpeedDial:
 				data: app.data
 				callback: app.callback
@@ -101,7 +181,7 @@
 	    	
 
 
-			# MDBoxLayout:
+			#MDBoxLayout:
 		    	
 		    	
 	    

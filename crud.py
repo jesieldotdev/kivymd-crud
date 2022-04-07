@@ -1,6 +1,8 @@
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.list import TwoLineListItem, TwoLineAvatarListItem
+from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
+from kivymd.uix.card import MDCard
 from kivymd.uix.card import MDCardSwipe
 from kivy.properties import StringProperty
 from kivymd.toast import toast
@@ -15,12 +17,16 @@ store = JsonStore('banco.json')
 kv = Builder.load_file('crud.kv')
 
 
+class MD3Card(MDCard, RoundedRectangularElevationBehavior):
+    '''Implements a material design v3 card.'''
+
+    text = StringProperty()
+
+
 
 
 class ListComAvatar(TwoLineAvatarListItem):
 	source = StringProperty("data/logo/kivy-icon-256.png")
-
-
 
 
 
@@ -83,6 +89,21 @@ class MyCrud(MDApp):
 	}
 	def on_start(self):
 		self.root.Listar()
+		styles = {
+            "elevated": "#f6eeee", "filled": "#f4dedc", "outlined": "#f8f5f4"
+        }
+        for style in styles.keys():
+            self.root.ids.content.add_widget(
+                MD3Card(
+                    line_color=(0.2, 0.2, 0.2, 0.8),
+                    style=style,
+                    text=style.capitalize(),
+                    md_bg_color=get_color_from_hex(styles[style]),
+                )
+            )
+		
+	def abrir(self, instance):
+		print('Certo')
 
 	def callback(self, instance):
 		print(instance.icon)
