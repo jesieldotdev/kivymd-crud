@@ -1,5 +1,9 @@
 #:import hex kivy.utils.get_color_from_hex
 
+<ListComAvatar>:
+	ImageLeftWidget:
+		source: root.source
+	
 
 <VendasWindow>:
 	orientation: 'vertical'
@@ -19,86 +23,84 @@
 
 		MDToolbar:
 			title: 'CRUD App'
-			elevation: 10
-			size_hint_y: .1	
+			elevation: .10
+			size_hint_y: .15
 		MDBoxLayout:
 			orientation: 'vertical'
 			
 			MDBoxLayout:
 
-				# size_hint_y: .3
+				size_hint_y: .6
 				orientation: 'vertical'
 
 				canvas.before:
 					Color:
-						rgba: hex('#F2F4F4')
+						rgba: hex('eeeeee')
 					Rectangle:
 						size: self.size
 						pos: self.pos
 
 
 				ScrollView:
+					scroll_timeout : 100
+					MDList:
+						id: container
+						padding: 0
 
-    				MDList:
-        				id: container
+		                
 
-        		ScrollView:
-
-					
-	    		MDBoxLayout:
-
-	    MDBoxLayout:
-	    	orientation: 'vertical'
-	    	size_hint_y: .3
-	    	spacing: .5
-
-	    	MDTextField:
-	    		id: colecao
-	    		hint_text: "Key"
-	    		multiline: False
-	    		halign: 'center'
-				on_text_validate: root.Adicionar(self.text)
-
-			MDTextField:
-	    		id: nome
-	    		hint_text: "Nome"
-	    		multiline: False
-	    		halign: 'center'
-				on_text_validate: root.Adicionar(self.text)
-
-			MDTextField:
-	    		id: idade
-	    		hint_text: "Idade"
-	    		multiline: False
-	    		halign: 'center'
-				on_text_validate: root.Adicionar(self.text)
+        		
 
 
-	    	MDRaisedButton:
-		    	text: "Mostrar Banco de Dados"
-		    	size_hint_x: .99
-		    	spacing: .5
-		    	on_release: root.listar() #lbl2.text=f'Idade: {str(root.idade)}'
+	    	
+
+		MDBoxLayout:
+
+			id: box
+			orientation: 'vertical'
+			# 
+			halign: 'center'
+			canvas.before:
+				Color:
+					rgba: hex('#eeeeee')
+				Rectangle:
+					size: self.size
+					pos: self.pos
+
+			MDBoxLayout:
+				# spacing: '10dp'
+				# size_hint_y: '10px'
+				orientation: 'vertical'
+
+				MDTextField:
+		    		id: colecao
+		    		hint_text: "Nome"
+		    		multiline: False
+		    		halign: 'center'
+					on_text_validate: root.Adicionar(self.text)
+					spacing: ('10px', '5px')
+
+
+				MDTextField:
+		    		id: idade
+		    		hint_text: "Idade"
+		    		multiline: False
+		    		halign: 'center'
+					on_text_validate: root.Adicionar(self.text)
+
+
+			MDFloatingActionButtonSpeedDial:
+				data: app.data
+				callback: app.callback
+				root_button_anim: True
+
+
+
+	    	
+
+
+			# MDBoxLayout:
 		    	
-
-		    MDRaisedButton:
-		    	text: "Adicionar"
-		    	size_hint_x: .99
-		    	md_bg_color: hex("#63C60C")
-		    	on_release: root.Adicionar()
-		    	
-
-		    MDRaisedButton:
-		    	text: "Remover"
-		    	size_hint_x: .99
-		    	md_bg_color: hex("#C60C0C")
-		    	on_release: root.Remover()
-		    	
-
-		    MDRaisedButton:
-		    	text: "Filtrar"
-		    	size_hint_x: .99
-		    	on_release: root.Filtrar()
 		    	
 	    
 			
