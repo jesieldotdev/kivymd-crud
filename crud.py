@@ -89,18 +89,9 @@ class MyCrud(MDApp):
 	}
 	def on_start(self):
 		self.root.Listar()
-		styles = {
-            "elevated": "#f6eeee", "filled": "#f4dedc", "outlined": "#f8f5f4"
-        }
-        for style in styles.keys():
-            self.root.ids.content.add_widget(
-                MD3Card(
-                    line_color=(0.2, 0.2, 0.2, 0.8),
-                    style=style,
-                    text=style.capitalize(),
-                    md_bg_color=get_color_from_hex(styles[style]),
-                )
-            )
+		# styles = {"elevated": "#f6eeee", "filled": "#f4dedc", "outlined": "#f8f5f4"}
+		# for style in styles.keys():
+		# 	self.root.ids.content.add_widget(MD3Card(line_color=(0.2, 0.2, 0.2, 0.8), style=style, text=style.capitalize(), md_bg_color=hex(styles[style]),))
 		
 	def abrir(self, instance):
 		print('Certo')
