@@ -13,10 +13,18 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.storage.jsonstore import JsonStore
 
-store = JsonStore('banco.json')
+# Configurações de Tela
+from kivy.utils import platform
+if platform == 'win':
+    Window.size = 300, 600
 
+# Banco de Dados
+store = JsonStore('banco.json')
 # store.put('tito', nome = 'Mathieu', idade=32)
-Window.size = 300, 600
+
+
+
+
 kv = Builder.load_file('crud.kv')
 
 
