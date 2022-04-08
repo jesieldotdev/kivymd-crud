@@ -1,11 +1,14 @@
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.list import TwoLineListItem, TwoLineAvatarListItem
 from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
 from kivymd.uix.card import MDCard
 from kivymd.uix.card import MDCardSwipe
 from kivy.properties import StringProperty
 from kivymd.toast import toast
+from kivymd.uix.snackbar import Snackbar
+from kivymd.uix.list import IRightBodyTouch, OneLineAvatarIconListItem
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.storage.jsonstore import JsonStore
@@ -13,16 +16,24 @@ from kivy.storage.jsonstore import JsonStore
 store = JsonStore('banco.json')
 
 # store.put('tito', nome = 'Mathieu', idade=32)
-#Window.size = 300, 600
+Window.size = 300, 600
 kv = Builder.load_file('crud.kv')
 
 
-class MD3Card(MDCard, RoundedRectangularElevationBehavior):
-    '''Implements a material design v3 card.'''
+# class MD3Card(MDCard, RoundedRectangularElevationBehavior):
+#     '''Implements a material design v3 card.'''
 
-    text = StringProperty()
+#     text = StringProperty()
+
+# class RightContentCls(IRightBodyTouch, MDBoxLayout):
+# 	icon = StringProperty()
+# 	text = StringProperty()
 
 
+class Item(OneLineAvatarIconListItem):
+	left_icon = StringProperty()
+	right_text = StringProperty('fdxg')
+	
 
 
 class ListComAvatar(TwoLineAvatarListItem):
@@ -34,6 +45,8 @@ class ListComAvatar(TwoLineAvatarListItem):
 class VendasWindow(MDBoxLayout):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
+
+		
 		
 
 	def Adicionar(self):
@@ -72,29 +85,38 @@ class VendasWindow(MDBoxLayout):
 			nome = store.get(key)['nome']
 			idade = store.get(key)['idade']
 
-			self.ids.container.add_widget(ListComAvatar(text = f'[b]{nome}[/b]' , secondary_text = f'{idade} anos'))
+			self.ids.container.add_widget(ListComAvatar(text = nome , secondary_text = f'{idade} anos'))
 	
 		for key in store:
 			print(store.get(key)['nome'])
 			print(store.get(key)['idade'])
+
+
+
 
 			
 
 
 class MyCrud(MDApp):
 	data = {
-	'Mostrar todos': 'text-box-search',
-	'Adicionar': 'notebook-plus-outline', 
-	'Remover': 'delete', 'Filtrar': 'magnify'
-	}
+		'Mostrar todos': 'text-box-search',
+		'Adicionar': 'notebook-plus-outline', 
+		'Remover': 'delete', 'Filtrar': 'magnify'
+		}
+	def __init__(self, **kwargs):
+		super().__init__(**kwargs)
+		
+
+
+	
+
+
 	def on_start(self):
 		self.root.Listar()
-		# styles = {"elevated": "#f6eeee", "filled": "#f4dedc", "outlined": "#f8f5f4"}
-		# for style in styles.keys():
-		# 	self.root.ids.content.add_widget(MD3Card(line_color=(0.2, 0.2, 0.2, 0.8), style=style, text=style.capitalize(), md_bg_color=hex(styles[style]),))
+		
 		
 	def abrir(self, instance):
-		print('Certo')
+		toast(instance.text)
 
 	def callback(self, instance):
 		print(instance.icon)
@@ -110,8 +132,29 @@ class MyCrud(MDApp):
 		if instance.icon == 'magnify':
 			self.root.Filtrar()
 	def build(self):
+		self.theme_cls.theme_style = "Light"
+		self.theme_cls.primary_palette = "Purple"
 		
+		lista = {'nome':'Adicionar', 'icon': 'plus'}, {'nome':'Remover', 'icon': 'delete'}
+		menu_items = [{ "right_text": str(key.get('nome')) ,"left_icon": str(key.get('icon')),"viewclass": "Item" , "on_release": lambda x=(str(key.get('nome'))): self.menu_chamada(x),} for key in lista]
+		self.menu = MDDropdownMenu(
+			items=menu_items, 
+			width_mult=4)
+	
+	# def menu_chamada(self, button):
+	# 	self.menu.caller = button
+	# 	self.menu.open()
 		return VendasWindow()
+
+	def chamada(self, button):
+		self.menu.caller = button
+		self.menu.open()
+
+	def menu_chamada(self, text_item):
+		self.menu.dismiss()
+		Snackbar(text=text_item).open()
+		
+		
 
 	
 

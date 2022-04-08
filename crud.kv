@@ -1,29 +1,26 @@
 #:import hex kivy.utils.get_color_from_hex
 
-<MD3Card>
-    padding: 16
-    size_hint: None, None
-    size: "200dp", "100dp"
+    
 
-    MDRelativeLayout:
-        size_hint: None, None
-        size: root.size
+<Item>
+	size_hint_x: .2
+	adaptive_size: True
+	text: root.right_text
+	# font_style: "Caption"
+    IconLeftWidget:
+        icon: root.left_icon
 
-        MDIconButton:
-            icon: "dots-vertical"
-            pos:
-                root.width - (self.width + root.padding[0] + dp(4)),                     root.height - (self.height + root.padding[0] + dp(4))
+    # RightContentCls:
+    #     id: content_menu
 
-        MDLabel:
-            id: label
-            text: root.text
-            adaptive_size: True
-            color: .2, .2, .2, .8
+
+
+
 
 
 
 <ListComAvatar>:
-    on_release: app.abrir
+    on_release: app.abrir(root)
 	ImageLeftWidget:
 		source: root.source
 		
@@ -35,8 +32,8 @@
 		orientation: 'vertical'
 		# size_hint_y: .5
 		canvas.before:
-			Color:
-				rgba: hex('#eeeeee')
+			# Color:
+			# 	rgba: hex('#eeeeee')
 			Rectangle:
 				size: self.size
 				pos: self.pos
@@ -44,11 +41,15 @@
 
 		spacing: .5
 
-
+		# Toolbar
 		MDToolbar:
-			title: 'CRUD App'
-			elevation: 10
-			#size_hint_y: .15
+		    title: "CRUD COM KIVY"
+		    md_bg_color: app.theme_cls.primary_dark
+		    right_action_items: [["dots-vertical", lambda x: app.chamada(x) ],]
+
+		
+
+		# Div
 		MDBoxLayout:
 			orientation: 'vertical'
 			
@@ -60,8 +61,8 @@
 				orientation: 'vertical'
 
 				canvas.before:
-					Color:
-						rgba: hex('eeeeee')
+					# Color:
+					# 	rgba: hex('eeeeee')
 					Rectangle:
 						size: self.size
 						pos: self.pos
@@ -161,11 +162,11 @@
 #		    		hint_text: "Idade"
 
 #		    		mu
-
+		# SpeedDial
 		MDFloatLayout:
 			canvas.before:
-				Color:
-					rgba: hex('#282828')
+				# Color:
+				# 	rgba: hex('#282828')
 				Rectangle:
 					size: self.size
 					pos: self.pos
