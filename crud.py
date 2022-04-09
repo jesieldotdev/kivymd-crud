@@ -8,14 +8,14 @@ from kivymd.uix.card import MDCardSwipe
 from kivy.properties import StringProperty
 from kivymd.toast import toast
 from kivymd.uix.snackbar import Snackbar
-from kivymd.uix.list import IRightBodyTouch, OneLineAvatarIconListItem
+from kivymd.uix.list import OneLineAvatarIconListItem
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.storage.jsonstore import JsonStore
 
 # Configurações de Tela
 from kivy.utils import platform
-if platform == 'win':
+if platform != 'android':
     Window.size = 300, 600
 
 # Banco de Dados
@@ -23,39 +23,21 @@ store = JsonStore('banco.json')
 # store.put('tito', nome = 'Mathieu', idade=32)
 
 
-
-
 kv = Builder.load_file('crud.kv')
-
-
-# class MD3Card(MDCard, RoundedRectangularElevationBehavior):
-#     '''Implements a material design v3 card.'''
-
-#     text = StringProperty()
-
-# class RightContentCls(IRightBodyTouch, MDBoxLayout):
-# 	icon = StringProperty()
-# 	text = StringProperty()
 
 
 class Item(OneLineAvatarIconListItem):
 	left_icon = StringProperty()
-	right_text = StringProperty('fdxg')
-	
+	right_text = StringProperty('')
 
 
 class ListComAvatar(TwoLineAvatarListItem):
-	source = StringProperty("data/logo/kivy-icon-256.png")
-
-
+	source = StringProperty("img/user-64.png")
 
 
 class VendasWindow(MDBoxLayout):
 	def __init__(self, **kwargs):
-		super().__init__(**kwargs)
-
-		
-		
+		super().__init__(**kwargs)		
 
 	def Adicionar(self):
 		
@@ -100,11 +82,6 @@ class VendasWindow(MDBoxLayout):
 			print(store.get(key)['idade'])
 
 
-
-
-			
-
-
 class MyCrud(MDApp):
 	data = {
 		'Mostrar todos': 'text-box-search',
@@ -114,10 +91,6 @@ class MyCrud(MDApp):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
 		
-
-
-	
-
 
 	def on_start(self):
 		self.root.Listar()
@@ -149,9 +122,6 @@ class MyCrud(MDApp):
 			items=menu_items, 
 			width_mult=4)
 	
-	# def menu_chamada(self, button):
-	# 	self.menu.caller = button
-	# 	self.menu.open()
 		return VendasWindow()
 
 	def chamada(self, button):
@@ -162,14 +132,6 @@ class MyCrud(MDApp):
 		self.menu.dismiss()
 		Snackbar(text=text_item).open()
 		
-		
-
-	
-
-
-
-	
-
 
 if __name__ == '__main__':
 	MyCrud().run()

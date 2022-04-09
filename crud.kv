@@ -10,14 +10,6 @@
     IconLeftWidget:
         icon: root.left_icon
 
-    # RightContentCls:
-    #     id: content_menu
-
-
-
-
-
-
 
 <ListComAvatar>:
     on_release: app.abrir(root)
@@ -43,7 +35,7 @@
 
 		# Toolbar
 		MDToolbar:
-		    title: "CRUD COM KIVY"
+		    title: "Banco de Dados"
 		    md_bg_color: app.theme_cls.primary_dark
 		    right_action_items: [["dots-vertical", lambda x: app.chamada(x) ],]
 
@@ -76,92 +68,6 @@
 
 		                
 
-        		
-
-
-	    	
-
-		#g: 0
-
-#
-
-#		                
-
-#
-
-#        		
-
-#
-
-#
-
-#	    	
-
-#
-
-#		MDBoxLayout:
-
-#
-
-#			id: box
-
-#			orientation: 'vertical'
-
-#			# 
-
-#			halign: 'center'
-
-#			canvas.before:
-
-#				Color:
-
-#					rgba: hex
-
-			#eeee')
-
-#				Rectangle:
-
-#					size: self.size
-
-#					pos: self.pos
-
-#
-
-#			MDBoxLayout:
-
-#				# spacing: '10dp'
-
-#				# size_hint_y: '10px'
-
-#				orientation: 'vertical'
-
-#
-
-#				MDTextField:
-
-#		    		id: colecao
-
-#		    		hint_text: "Nome"
-
-#		    		multiline: False
-
-#		    		halign: 'center'
-
-#					on_text_validate: root.Adicionar(self.text)
-
-#					spacing: ('10px', '5px')
-
-#
-
-#
-
-#				MDTextField:
-
-#		    		id: idade
-
-#		    		hint_text: "Idade"
-
-#		    		mu
 		# SpeedDial
 		MDFloatLayout:
 			canvas.before:
@@ -177,14 +83,4 @@
 				callback: app.callback
 				root_button_anim: True
 
-
-
-	    	
-
-
-			#MDBoxLayout:
-		    	
-		    	
-	    
-			
 
