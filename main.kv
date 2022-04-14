@@ -1,0 +1,104 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<MDScreen>:
+    on_leave: app.previous_screen = self.name
+
+<Item>
+	size_hint_x: .2
+	adaptive_size: True
+	text: root.right_text
+	# font_style: "Caption"
+    IconLeftWidget:
+        icon: root.left_icon
+
+
+<ListComAvatar>:
+    on_release: app.abrir(root)
+	ImageLeftWidget:
+		source: root.source
+		
+	
+
+<InicioWindow>:
+	MDBoxLayout:
+		orientation: 'vertical'
+		MDBoxLayout:
+			orientation: 'vertical'
+			# size_hint_y: .5
+			canvas.before:
+				# Color:
+				# 	rgba: hex('#eeeeee')
+				Rectangle:
+					size: self.size
+					pos: self.pos
+
+
+			spacing: .5
+
+			# Toolbar
+			MDToolbar:
+			    title: "Banco de Dados"
+			    md_bg_color: app.theme_cls.primary_dark
+			    right_action_items: [["dots-vertical", lambda x: app.chamada(x) ],]
+
+			
+
+			# Div
+			MDBoxLayout:
+				orientation: 'vertical'
+
+
+				MDTextField:
+	                id: search_field
+	                hint_text: 'Pesquisar'
+	                on_text: root.existe(self.text, True)
+
+				
+				MDBoxLayout:
+	                id: content
+
+					#size_hint_y: .6
+					orientation: 'vertical'
+
+					canvas.before:
+						# Color:
+						# 	rgba: hex('eeeeee')
+						Rectangle:
+							size: self.size
+							pos: self.pos
+
+					RecycleView:
+			            id: rv
+			            key_viewclass: 'viewclass'
+			            key_size: 'height'
+
+
+			            RecycleBoxLayout:
+			                padding: dp(10)
+			                default_size: None, dp(64)
+			                default_size_hint: 1, None
+			                size_hint_y: None
+			                height: self.minimum_height
+			                orientation: 'vertical'
+
+			                
+
+			# SpeedDial
+			MDFloatLayout:
+				canvas.before:
+					# Color:
+					# 	rgba: hex('#282828')
+					Rectangle:
+						size: self.size
+						pos: self.pos
+				size_hint_y: .00001
+				#size_hint_x: .2
+				
+				MDFloatingActionButtonSpeedDial:
+					data: app.data
+					callback: app.callback
+					root_button_anim: True
+					label_text_color: hex('#fafafa')
+
+
+

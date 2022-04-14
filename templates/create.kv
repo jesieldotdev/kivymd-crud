@@ -1,0 +1,22 @@
+<TelaCadastro>:
+	orientation: 'vertical'
+	MDBoxLayout:
+		orientation: 'vertical'
+		# size_hint_y: .5
+		canvas.before:
+			# Color:
+			# 	rgba: hex('#eeeeee')
+			Rectangle:
+				size: self.size
+				pos: self.pos
+
+
+		spacing: .5
+
+		# Toolbar
+		MDToolbar:
+		    title: "Cadastro"
+		    md_bg_color: app.theme_cls.primary_dark
+		    right_action_items: [["chevron-left", lambda x: app.voltar() ],]
+
+		MDBoxLayout:
