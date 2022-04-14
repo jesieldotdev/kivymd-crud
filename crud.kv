@@ -1,6 +1,5 @@
 #:import hex kivy.utils.get_color_from_hex
 
-    
 
 <Item>
 	size_hint_x: .2
@@ -44,7 +43,13 @@
 		# Div
 		MDBoxLayout:
 			orientation: 'vertical'
-			
+
+
+			MDTextField:
+                id: search_field
+                hint_text: 'Pesquisar'
+                on_text: root.existe(self.text, True)
+
 			
 			MDBoxLayout:
                 id: content
@@ -59,12 +64,19 @@
 						size: self.size
 						pos: self.pos
 
+				RecycleView:
+		            id: rv
+		            key_viewclass: 'viewclass'
+		            key_size: 'height'
 
-				ScrollView:
-					scroll_timeout : 100
-					MDList:
-						id: container
-						padding: 0
+
+		            RecycleBoxLayout:
+		                padding: dp(10)
+		                default_size: None, dp(64)
+		                default_size_hint: 1, None
+		                size_hint_y: None
+		                height: self.minimum_height
+		                orientation: 'vertical'
 
 		                
 
