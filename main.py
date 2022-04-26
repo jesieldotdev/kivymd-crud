@@ -19,6 +19,11 @@ import re
 from kivy.uix.recycleview import RecycleView
 from conf import Conf
 from create import TelaCadastro
+import requests
+
+response = requests.get('https://625e20a26c48e8761ba572c5.mockapi.io/api/v1/users').json()
+
+print(response)
 
 
 
@@ -60,13 +65,13 @@ class InicioWindow(MDScreen):
 
 	def existe(self, text='', search=False):
 		
-		def add_nome(nome, idade):
+		def add_nome(nome, idade, avatar):
 			self.ids.rv.data.append(
 				{
 					'viewclass': 'ListComAvatar',
 					'text': str(nome),
 					'secondary_text': str(idade),
-					
+					'source': str(avatar)
 
 				}
 			)
@@ -74,15 +79,16 @@ class InicioWindow(MDScreen):
 
 		self.ids.rv.data = []
 		
-		for key in store:
+		for key in response:
 			
-			nome = store.get(key)['nome']
-			idade = store.get(key)['idade']
+			nome = key['name']
+			idade = key['idade']
+			avatar = key['avatar']
 			if search:
 				if text in nome:
-					add_nome(nome, idade)
+					add_nome(nome, idade, avatar)
 			else:
-				add_nome(nome, idade)
+				add_nome(nome, idade, avatar)
 		
 		
 				

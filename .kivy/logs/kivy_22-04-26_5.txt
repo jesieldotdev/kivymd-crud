@@ -1,0 +1,72 @@
+[INFO   ] Logger: Record log in /storage/emulated/0/kivymd-crud/.kivy/logs/kivy_22-04-26_5.txt
+[INFO   ] Kivy: v2.0.0
+[INFO   ] Kivy: Installed at "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/kivy/__init__.py"
+[INFO   ] Python: v3.9.7 (default, Oct  9 2021, 08:02:40) 
+[GCC 11.1.0]
+[INFO   ] Python: Interpreter at "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/bin/python3"
+[INFO   ] KivyMD: 0.104.2, git-bc7d1f5, 2021-06-06 (installed at "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/kivymd/__init__.py")
+[INFO   ] Factory: 186 symbols loaded
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] Text: Provider: sdl2
+[INFO   ] Window: Provider: sdl2
+[INFO   ] GL: Using the "OpenGL ES 2" graphics system
+[INFO   ] GL: Backend used <sdl2>
+[INFO   ] GL: OpenGL version <b'OpenGL ES 3.2 V@331.0 (GIT@7adeec4758, I21281c58c8) (Date:12/27/18)'>
+[INFO   ] GL: OpenGL vendor <b'Qualcomm'>
+[INFO   ] GL: OpenGL renderer <b'Adreno (TM) 505'>
+[INFO   ] GL: OpenGL parsed version: 3, 2
+[INFO   ] GL: Texture max size <16384>
+[INFO   ] GL: Texture max units <16>
+[INFO   ] Window: auto add sdl2 input provider
+[INFO   ] Window: virtual keyboard not allowed, single mode, not docked
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+[WARNING] stderr:     conn = connection.create_connection(
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+[WARNING] stderr:     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/socket.py", line 954, in getaddrinfo
+[WARNING] stderr:     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+[WARNING] stderr: socket.gaierror: [Errno 7] No address associated with hostname
+[WARNING] stderr: 
+[WARNING] stderr: During handling of the above exception, another exception occurred:
+[WARNING] stderr: 
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+[WARNING] stderr:     httplib_response = self._make_request(
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+[WARNING] stderr:     self._validate_conn(conn)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1040, in _validate_conn
+[WARNING] stderr:     conn.connect()
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+[WARNING] stderr:     conn = self._new_conn()
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+[WARNING] stderr:     raise NewConnectionError(
+[WARNING] stderr: urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7e2478b0>: Failed to establish a new connection: [Errno 7] No address associated with hostname
+[WARNING] stderr: 
+[WARNING] stderr: During handling of the above exception, another exception occurred:
+[WARNING] stderr: 
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/requests/adapters.py", line 440, in send
+[WARNING] stderr:     resp = conn.urlopen(
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/connectionpool.py", line 785, in urlopen
+[WARNING] stderr:     retries = retries.increment(
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+[WARNING] stderr:     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+[WARNING] stderr: urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='625e20a26c48e8761ba572c5.mockapi.io', port=443): Max retries exceeded with url: /api/v1/users (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7e2478b0>: Failed to establish a new connection: [Errno 7] No address associated with hostname'))
+[WARNING] stderr: 
+[WARNING] stderr: During handling of the above exception, another exception occurred:
+[WARNING] stderr: 
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/storage/emulated/0/kivymd-crud/main.py", line 24, in <module>
+[WARNING] stderr:     response = requests.get('https://625e20a26c48e8761ba572c5.mockapi.io/api/v1/users').json()
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/requests/api.py", line 75, in get
+[WARNING] stderr:     return request('get', url, params=params, **kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/requests/api.py", line 61, in request
+[WARNING] stderr:     return session.request(method=method, url=url, **kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/requests/sessions.py", line 529, in request
+[WARNING] stderr:     resp = self.send(prep, **send_kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/requests/sessions.py", line 645, in send
+[WARNING] stderr:     r = adapter.send(request, **kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/requests/adapters.py", line 519, in send
+[WARNING] stderr:     raise ConnectionError(e, request=request)
+[WARNING] stderr: requests.exceptions.ConnectionError: HTTPSConnectionPool(host='625e20a26c48e8761ba572c5.mockapi.io', port=443): Max retries exceeded with url: /api/v1/users (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7e2478b0>: Failed to establish a new connection: [Errno 7] No address associated with hostname'))
