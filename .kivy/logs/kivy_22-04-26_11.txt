@@ -1,4 +1,4 @@
-[INFO   ] Logger: Record log in /storage/emulated/0/kivymd-crud/.kivy/logs/kivy_22-04-26_10.txt
+[INFO   ] Logger: Record log in /storage/emulated/0/kivymd-crud/.kivy/logs/kivy_22-04-26_11.txt
 [INFO   ] Kivy: v2.0.0
 [INFO   ] Kivy: Installed at "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/kivy/__init__.py"
 [INFO   ] Python: v3.9.7 (default, Oct  9 2021, 08:02:40) 
@@ -23,6 +23,29 @@
 [WARNING] Base: Unknown <android> provider
 [INFO   ] Base: Start application main loop
 [INFO   ] Loader: using a thread pool of 2 workers
+[ERROR  ] Loader: Failed to load image <https://avatars.dicebear.com/api/male/Alvera Ribeiro.png>
+Traceback (most recent call last):
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/kivy/loader.py", line 345, in _load_urllib
+    fd = opener.open(request)
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/http/client.py", line 1290, in _send_request
+    self.putrequest(method, url, **skips)
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/http/client.py", line 1124, in putrequest
+    self._validate_path(url)
+  File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/http/client.py", line 1224, in _validate_path
+    raise InvalidURL(f"URL can't contain control characters. {url!r} "
+http.client.InvalidURL: URL can't contain control characters. '/api/male/Alvera Ribeiro.png' (found at least ' ')
 [ERROR  ] Loader: Failed to load image <https://avatars.dicebear.com/api/male/Alvera Ribeiro.png>
 Traceback (most recent call last):
   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.9/site-packages/kivy/loader.py", line 345, in _load_urllib

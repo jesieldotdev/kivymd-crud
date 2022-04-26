@@ -48,7 +48,7 @@ class Item(OneLineAvatarIconListItem):
 
 
 class ListComAvatar(TwoLineAvatarListItem):
-	source = StringProperty("img/user-64.png")
+	source = StringProperty()
 
 
 class SM(ScreenManager):

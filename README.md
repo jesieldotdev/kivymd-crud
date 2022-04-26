@@ -3,4 +3,4 @@ Realizando crud com Kivy e JSON
 
 `pip install -r requirements`
 
-![](img/scr.png)
+![](img/scr2.png)
